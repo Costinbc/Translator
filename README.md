@@ -1,6 +1,6 @@
 Multilingual translator in Python
 
-• Created a Python program that translates words between 13 languages.
+• Created a Python web scraper that translates words between 13 languages.
 
 • The program prints up to 5 different translations and example sentences, that are also added to a file named .txt.
 
