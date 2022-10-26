@@ -39,8 +39,14 @@ def translate(language_source, language_transl):
     print(languages[language_transl - 1] + " Translations:")
     soup = BeautifulSoup(page.content, 'html.parser')
     words = soup.find_all('span', {'class': 'display-term'})
-    file.write(words[0].text + '\n')
-    print(words[0].text)
+    if len(words) > 5:
+        for a in range(5):
+            file.write(words[a].text + '\n')
+            print(words[a].text)
+    else:
+        for a in range(len(words)):
+            file.write(words[a].text + '\n')
+            print(words[a].text)
 
     file.write(languages[language_transl - 1] + " Examples:" + '\n')
     print(languages[language_transl - 1] + " Examples:")
@@ -57,11 +63,22 @@ def translate(language_source, language_transl):
     list_of_phrases_transl = [x.replace("\n", "") for x in list_of_phrases_transl]
     list_of_phrases_transl = [x.replace("          ", "") for x in list_of_phrases_transl]
 
-    file.write(list_of_phrases_source[0] + '\n')
-    file.write(list_of_phrases_transl[0] + '\n\n')
-    print(list_of_phrases_source[0])
-    print(list_of_phrases_transl[0])
-    print()
+
+    if len(list_of_phrases_transl) > 5:
+        for a in range(5):
+            file.write(list_of_phrases_source[a] + '\n')
+            file.write(list_of_phrases_transl[a] + '\n\n')
+            print(list_of_phrases_source[a])
+            print(list_of_phrases_transl[a])
+            print()
+    else:
+        for a in range(len(list_of_phrases_transl)):
+            file.write(list_of_phrases_source[a] + '\n')
+            file.write(list_of_phrases_transl[a] + '\n\n')
+            print(list_of_phrases_source[a])
+            print(list_of_phrases_transl[a])
+            print()
+
 
 
 args = sys.argv
